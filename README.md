@@ -1,52 +1,54 @@
+<p align="center"><strong>English</strong> · <a href="README.ru.md">Русский</a></p>
+
 <p align="center">
-  <img src="docs/images/banner.svg" alt="ShareCheck — проверь проект перед публикацией" width="100%">
+  <img src="docs/images/banner.svg" alt="ShareCheck — inspect before you publish" width="100%">
 </p>
 
 <p align="center">
-  <strong>Проверь папку. Найди лишнее. Публикуй осознанно.</strong><br>
-  Локальная CLI-утилита для поиска случайно оставленных секретов и подготовки проекта к GitHub.
+  <strong>Scan your folder. Review your findings. Share with confidence.</strong><br>
+  A local CLI for spotting accidental secrets and preparing your project for GitHub.
 </p>
 
 <p align="center">
-  <a href="#быстрый-старт">Быстрый старт</a> ·
-  <a href="#команды">Команды</a> ·
-  <a href="#что-проверяет">Возможности</a> ·
-  <a href="#ограничения">Ограничения</a>
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#commands">Commands</a> ·
+  <a href="#what-it-checks">Features</a> ·
+  <a href="#limitations">Limitations</a>
 </p>
 
 ---
 
-**Без аккаунта. Без загрузки файлов в облако. Без сторонних библиотек для запуска.**
+**No account. No uploads. No third-party runtime dependencies.**
 
-ShareCheck проверяет файлы на компьютере и выводит замечания прямо в терминал: путь, номер строки и совет. Найденные токены и содержимое строк не выводятся. Исходные файлы не изменяются.
+ShareCheck scans files on your computer and prints findings directly in your terminal: a path, line number, and suggested next step. Matched tokens and source lines are never printed. Your source files are not modified.
 
-![Пример проверки: токен в config.py и файл .env](docs/images/terminal.svg)
+![Example scan: a token in config.py and an environment file](docs/images/terminal.svg)
 
-*Иллюстрация вывода на учебном проекте. Цвета — оформление документации; CLI выводит обычный текст.*
+*Illustrative output from a sample project. Colors are part of the documentation artwork; the CLI itself prints plain text.*
 
-## Быстрый старт
+## Quick start
 
-Нужен **Python 3.10 или новее**. Подходит для Windows, macOS и Linux.
+Requires **Python 3.10 or newer**. Works on Windows, macOS, and Linux.
 
-### 1. Скачай проект
+### 1. Download the project
 
-На странице репозитория нажми **Code → Download ZIP**, распакуй архив и открой терминал в папке, где находятся `pyproject.toml` и этот README.
+On the repository page, select **Code → Download ZIP**, extract the archive, and open a terminal in the folder containing `pyproject.toml` and this README.
 
-### 2. Проверь Python
+### 2. Check Python
 
 ```sh
 python --version
 ```
 
-На macOS и Linux команда может называться `python3`; тогда используй её вместо `python` во всех примерах.
+On macOS and Linux, the command may be `python3`. If so, use it instead of `python` throughout these examples.
 
-### 3. Запусти проверку
+### 3. Run a scan
 
 ```sh
 python -m sharecheck .
 ```
 
-Точка означает текущую папку. Чтобы проверить другой проект, укажи путь:
+The dot means the current directory. To scan another project, provide its path:
 
 ```powershell
 # Windows / PowerShell
@@ -58,11 +60,11 @@ python -m sharecheck "C:\Users\you\Projects\my-app"
 python3 -m sharecheck ~/Projects/my-app
 ```
 
-Без установки запускай команды из папки ShareCheck. Для запуска из любого места установи короткую команду.
+Without installation, run these commands from the ShareCheck folder. To run from anywhere, install the command below.
 
-### Короткая команда `sharecheck`
+### Install the `sharecheck` command
 
-Из папки проекта:
+From the project folder:
 
 ```sh
 python -m pip install .
@@ -70,10 +72,10 @@ sharecheck --help
 sharecheck .
 ```
 
-Установка может скачать инструменты сборки. Сам сканер работает без сетевых запросов. Если команда `sharecheck` не найдена, используй `python -m sharecheck` с тем же Python, в который установлен пакет.
+Installation may download build tools. The scanner itself makes no network requests. If `sharecheck` is not found, use `python -m sharecheck` with the same Python interpreter you installed the package into.
 
 <details>
-<summary><strong>Установка в виртуальное окружение</strong></summary>
+<summary><strong>Install in a virtual environment</strong></summary>
 
 Windows / PowerShell:
 
@@ -91,83 +93,83 @@ python3 -m venv .venv
 .venv/bin/sharecheck .
 ```
 
-Активация окружения для этих команд не требуется.
+These commands do not require activating the environment.
 
 </details>
 
-## Команды
+## Commands
 
-| Задача | Команда |
+| Task | Command |
 | :--- | :--- |
-| Проверить текущую папку | `python -m sharecheck .` |
-| Проверить другой проект | `python -m sharecheck "path/to/project"` |
-| Получить JSON | `python -m sharecheck . --json` |
-| Сохранить HTML-отчёт | `python -m sharecheck . --html report.html` |
-| Посмотреть справку | `python -m sharecheck --help` |
+| Scan the current directory | `python -m sharecheck .` |
+| Scan another project | `python -m sharecheck "path/to/project"` |
+| Print JSON | `python -m sharecheck . --json` |
+| Save an HTML report | `python -m sharecheck . --html report.html` |
+| Show help | `python -m sharecheck --help` |
 
-Путь с пробелами заключай в кавычки. Без аргумента папки проверяется текущая директория. Без установки выполняй команды из папки ShareCheck.
+Quote paths containing spaces. If you omit the folder argument, ShareCheck scans the current directory. Without installation, run commands from the ShareCheck folder.
 
-### HTML-отчёт
+### HTML reports
 
 ```sh
 python -m sharecheck "path/to/project" --html report.html
 ```
 
-Открой созданный `report.html` в браузере: там будут замечания, рекомендации и информация о пропущенных файлах. Отчёт автономный, сервер не нужен. Путь отчёта отсчитывается от текущей директории. Существующий файл не перезаписывается — выбери новое имя.
+Open `report.html` in your browser to see findings, recommendations, and skipped-file counts. The report is standalone and needs no server. The output path is relative to your current directory. Existing files are never overwritten; choose a new filename instead.
 
-### JSON для скриптов
+### JSON for scripts
 
 ```sh
 python -m sharecheck "path/to/project" --json
 ```
 
-Результат содержит `root` — путь проекта, `stats` — счётчики проверки и `findings` — замечания. Каждое замечание содержит `severity`, `path`, `line`, `title` и `advice`. Номер строки `line` может быть `null`.
+The result contains `root` (the project path), `stats` (scan counts), and `findings`. Each finding contains `severity`, `path`, `line`, `title`, and `advice`. The `line` field can be `null`.
 
-## Что проверяет
+## What it checks
 
-| Проверка | Результат |
+| Check | Result |
 | :--- | :--- |
-| Некоторые форматы GitHub и Slack токенов | `ERROR`: файл, строка и совет |
-| AWS access key ID | `ERROR`: найден идентификатор ключа |
-| Заголовки приватных ключей | `ERROR`: возможный приватный ключ |
-| `.env` и `.env.*` | `WARNING`: проверь файл окружения |
-| Имена файлов учётных данных и контейнеры `.p12` / `.pfx` | `WARNING`: возможно, приватный файл |
-| Файлы больше 50 MiB | `WARNING`: рассмотри Git LFS или отдельную загрузку |
-| Нет README, лицензии или `.gitignore` | `INFO`: рекомендация по оформлению |
+| Selected GitHub and Slack token formats | `ERROR`: file, line, and advice |
+| AWS access key IDs | `ERROR`: a matching key identifier |
+| Private key headers | `ERROR`: a possible private key |
+| `.env` and `.env.*` files | `WARNING`: review the environment file |
+| Credential filenames and `.p12` / `.pfx` containers | `WARNING`: a potentially sensitive file |
+| Files larger than 50 MiB | `WARNING`: consider Git LFS or a separate download |
+| Missing README, license, or `.gitignore` | `INFO`: repository readiness advice |
 
-Файлы окружения с суффиксами `.example`, `.sample`, `.template` исключены из проверки имени, но их содержимое всё равно проверяется на известные форматы секретов.
+Environment files ending in `.example`, `.sample`, or `.template` are exempt from the filename warning. Their contents are still checked for supported secret patterns.
 
-### Как читать результат
+### Understanding findings
 
-- **ERROR** — совпал шаблон секрета. Проверь локально, настоящий ли это ключ. Если он был раскрыт, отзови или замени его; удаление из файла не убирает его из истории Git.
-- **WARNING** — файл требует внимания. Например, `.env` может содержать безобидные настройки, но его стоит проверить.
-- **INFO** — подсказка по подготовке репозитория, не ошибка.
+- **ERROR** — a secret pattern matched. Check locally whether the credential is real. If exposed, revoke or rotate it; deleting it from a file does not remove it from Git history.
+- **WARNING** — a file needs review. For example, an `.env` file might contain harmless settings, but it is worth checking.
+- **INFO** — a repository readiness suggestion, not an error.
 
-### Коды завершения
+### Exit codes
 
-| Код | Значение |
+| Code | Meaning |
 | :---: | :--- |
-| `0` | Нет `ERROR` и `WARNING` среди проверенных файлов; `INFO` допустимы |
-| `1` | Есть `ERROR` или `WARNING` |
-| `2` | Команда не выполнена: например, папка не существует или отчёт нельзя записать |
+| `0` | No `ERROR` or `WARNING` findings in inspected files; `INFO` findings are allowed |
+| `1` | At least one `ERROR` or `WARNING` finding |
+| `2` | The command failed, for example because the folder does not exist or the report cannot be written |
 
-Код `1` означает найденные замечания, а не сбой приложения. Это позволяет использовать ShareCheck в автоматических проверках.
+Exit code `1` means findings were detected, not that the application crashed. These codes make ShareCheck usable in automated checks.
 
-## Ограничения
+## Limitations
 
-ShareCheck — небольшая проверка перед публикацией, а не полный аудит безопасности.
+ShareCheck is a small pre-publication check, not a complete security audit.
 
-- Проверяется содержимое **UTF-8 файлов до 2 MiB**. Двоичные, более крупные файлы и другие кодировки пропускаются; количество отражается в отчёте.
-- Исключены `.git`, `node_modules`, `.venv`, `venv`, `__pycache__` и `.pytest_cache`. Символические ссылки не обходятся.
-- Проверяются рабочие файлы, в том числе перечисленные в `.gitignore`. История Git, архивы и произвольные пароли не анализируются.
-- Учебные токены тоже могут вызвать замечание. Подлинность ключей через сервисы не проверяется.
-- Отчёт не содержит найденные значения секретов, но содержит пути файлов и абсолютный путь проекта. Учитывай это при его публикации.
+- Content scanning covers **UTF-8 files up to 2 MiB**. Binary files, larger files, and other encodings are skipped; counts appear in the report.
+- `.git`, `node_modules`, `.venv`, `venv`, `__pycache__`, and `.pytest_cache` directories are excluded. Symbolic links are not followed.
+- Working files are scanned, including files listed in `.gitignore`. Git history, archives, and arbitrary passwords are not inspected.
+- Example tokens can also trigger findings. Credentials are not validated against external services.
+- Reports omit matched secret values but include file paths and the absolute project path. Consider this before sharing a report.
 
-Отсутствие замечаний не гарантирует отсутствие секретов. Для глубокой проверки используй специализированный сканер. Проверяй доверенные локальные папки, которые не изменяются во время сканирования.
+No findings does not guarantee that a project contains no secrets. Use a dedicated secret scanner for deeper checks. Scan trusted local folders that are not being modified during the scan.
 
-## Разработка
+## Development
 
-Запуск тестов из корня проекта:
+Run tests from the project root:
 
 ```sh
 python -m unittest discover -s tests -v
@@ -176,20 +178,20 @@ python -m unittest discover -s tests -v
 ```text
 sharecheck/
 ├── sharecheck/
-│   ├── __main__.py       # Команды и коды завершения
-│   ├── scanner.py        # Проверка файлов
-│   └── report.py         # HTML-отчёт
-├── tests/               # Тесты с синтетическими данными
-├── docs/images/         # Иллюстрации README
-└── pyproject.toml       # Метаданные и установка
+│   ├── __main__.py       # Commands and exit codes
+│   ├── scanner.py        # File checks
+│   └── report.py         # HTML reports
+├── tests/               # Tests with synthetic data
+├── docs/images/         # README artwork
+└── pyproject.toml       # Package metadata and installation
 ```
 
-Идеи для вклада: новые точные шаблоны с синтетическими примерами, локализация и проверка staged-файлов. Эти возможности пока не реализованы. Не добавляй настоящие секреты в тесты или отчёты.
+Contribution ideas include precise detection patterns with synthetic fixtures, localization, and staged-file scanning. These additions are not implemented yet. Never add real secrets to tests or reports.
 
-## Лицензия
+## License
 
-[MIT](LICENSE) — можно использовать, изменять и распространять с соблюдением условий лицензии.
+[MIT](LICENSE) — use, modify, and distribute under the license terms.
 
 ---
 
-<p align="center">Если ShareCheck помог подготовить проект к публикации, поддержи его звездой ⭐</p>
+<p align="center">If ShareCheck helped you prepare a project for publication, consider giving it a star ⭐</p>
