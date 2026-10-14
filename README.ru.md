@@ -32,7 +32,16 @@ ShareCheck проверяет файлы на компьютере и вывод
 
 ### 1. Скачай проект
 
-На странице репозитория нажми **Code → Download ZIP**, распакуй архив и открой терминал в папке, где находятся `pyproject.toml` и этот README.
+Если Git установлен, открой терминал и выполни:
+
+```sh
+git clone https://github.com/Palladiymateria/sharecheck.git
+cd sharecheck
+```
+
+Проверить наличие Git можно командой `git --version`. Если команда не найдена, установи Git с [git-scm.com](https://git-scm.com/downloads), затем заново открой терминал.
+
+Без Git: на странице репозитория нажми **Code → Download ZIP**, распакуй архив и открой терминал в папке, где находятся `pyproject.toml` и этот README.
 
 ### 2. Проверь Python
 

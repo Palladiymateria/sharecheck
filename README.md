@@ -32,7 +32,16 @@ Requires **Python 3.10 or newer**. Works on Windows, macOS, and Linux.
 
 ### 1. Download the project
 
-On the repository page, select **Code → Download ZIP**, extract the archive, and open a terminal in the folder containing `pyproject.toml` and this README.
+With Git installed, open a terminal and clone the repository:
+
+```sh
+git clone https://github.com/Palladiymateria/sharecheck.git
+cd sharecheck
+```
+
+To check whether Git is installed, run `git --version`. If the command is not found, install Git from [git-scm.com](https://git-scm.com/downloads), then reopen your terminal.
+
+Without Git, select **Code → Download ZIP** on the repository page, extract the archive, and open a terminal in the folder containing `pyproject.toml` and this README.
 
 ### 2. Check Python
 
