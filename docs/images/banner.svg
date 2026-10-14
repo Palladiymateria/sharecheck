@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title">
+<title id="title">ShareCheck — Inspect before you publish</title>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1423"/><stop offset="1" stop-color="#173b41"/></linearGradient></defs>
+<rect width="1200" height="400" rx="24" fill="url(#bg)"/>
+<circle cx="1020" cy="190" r="150" fill="none" stroke="#315953"/><circle cx="1020" cy="190" r="115" fill="none" stroke="#315953"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="64" y="65" fill="#84edc2" font-size="14" font-weight="700" letter-spacing="4">CHECK LOCALLY. SHARE CONFIDENTLY.</text>
+<text x="60" y="169" fill="#f4f8ff" font-size="86" font-weight="700" letter-spacing="-4">ShareCheck<tspan fill="#83edc1">_</tspan></text>
+<text x="64" y="225" fill="#bfd0df" font-size="29">Inspect before you publish.</text>
+<text x="64" y="269" fill="#9db2c4" font-size="18">A small CLI for accidental secrets and repository clutter.</text>
+<text x="64" y="342" fill="#9af3cc" font-size="15" font-weight="700" letter-spacing="2">LOCAL ONLY   /   PYTHON 3.10+   /   MIT LICENSE</text></g>
+<rect x="920" y="110" width="200" height="170" rx="20" fill="#101e2b" stroke="#46797a"/>
+<path d="m957 151 29 25-29 25m47 0h33" fill="none" stroke="#81ebc2" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1098" cy="262" r="35" fill="#81ebc2"/><path d="m1082 261 11 12 23-25" fill="none" stroke="#103731" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

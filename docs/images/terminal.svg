@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="510" viewBox="0 0 1200 510" role="img" aria-labelledby="title">
+<title id="title">Example scan: GitHub token in config.py and environment file</title>
+<rect width="1200" height="510" rx="20" fill="#0e1724"/><path d="M20 0h1160q20 0 20 20v40H0V20Q0 0 20 0" fill="#1c2a3a"/>
+<circle cx="30" cy="30" r="6" fill="#fa8585"/><circle cx="52" cy="30" r="6" fill="#efc470"/><circle cx="74" cy="30" r="6" fill="#7bd7ad"/>
+<text x="600" y="36" text-anchor="middle" fill="#a8bbcf" font-family="Segoe UI,Arial,sans-serif" font-size="14">SHARECHECK / EXAMPLE SESSION</text>
+<g font-family="Consolas,Menlo,monospace" font-size="18">
+<text x="36" y="112" fill="#edf4fb"><tspan fill="#85eac1">$ </tspan>python -m sharecheck ./demo-project</text>
+<text x="36" y="159" fill="#edf4fb">SHARECHECK | 5 files | 2 findings</text>
+<text x="36" y="211" fill="#ff9393">[ERROR] config.py:2 - GitHub token</text>
+<text x="58" y="244" fill="#b8c9da">If real, revoke or rotate the credential and remove it from files and Git history.</text>
+<text x="36" y="298" fill="#f1cb80">[WARNING] .env - Environment file</text>
+<text x="58" y="331" fill="#b8c9da">Review locally; keep real credentials out of version control.</text>
+<text x="36" y="388" fill="#91a8bc" font-size="16">Coverage: UTF-8 text &lt;=2 MiB; no Git history or dependency folders. Use --json for scan counts.</text></g>
+<path d="M36 424h1128" stroke="#293a4b"/><text x="36" y="464" fill="#85eac1" font-family="Segoe UI,Arial,sans-serif" font-size="16">FILE + LINE + NEXT STEP</text>
+<text x="1164" y="464" text-anchor="end" fill="#9fb2c7" font-family="Segoe UI,Arial,sans-serif" font-size="16">Matched secrets are never printed.</text></svg>

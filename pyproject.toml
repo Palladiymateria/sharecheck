@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sharecheck-local"
+version = "0.1.0"
+description = "A local pre-publish check for accidental secrets and repository clutter."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+sharecheck = "sharecheck.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["sharecheck*"]
