@@ -5,6 +5,14 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Palladiymateria/sharecheck/actions/workflows/check.yml"><img src="https://github.com/Palladiymateria/sharecheck/actions/workflows/check.yml/badge.svg" alt="Tests"></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&amp;logoColor=white" alt="Python 3.10 or newer">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-7cdbb5" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/runtime_dependencies-0-7cdbb5" alt="Zero runtime dependencies">
+  <a href="https://github.com/Palladiymateria/sharecheck/stargazers"><img src="https://img.shields.io/github/stars/Palladiymateria/sharecheck?style=flat" alt="GitHub stars"></a>
+</p>
+
+<p align="center">
   <strong>Scan your folder. Review your findings. Share with confidence.</strong><br>
   A local CLI for spotting accidental secrets and preparing your project for GitHub.
 </p>

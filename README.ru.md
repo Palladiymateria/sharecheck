@@ -5,6 +5,14 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Palladiymateria/sharecheck/actions/workflows/check.yml"><img src="https://github.com/Palladiymateria/sharecheck/actions/workflows/check.yml/badge.svg" alt="Тесты"></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&amp;logoColor=white" alt="Python 3.10 или новее">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-7cdbb5" alt="Лицензия MIT"></a>
+  <img src="https://img.shields.io/badge/runtime_dependencies-0-7cdbb5" alt="Без сторонних библиотек для запуска">
+  <a href="https://github.com/Palladiymateria/sharecheck/stargazers"><img src="https://img.shields.io/github/stars/Palladiymateria/sharecheck?style=flat" alt="Звёзды GitHub"></a>
+</p>
+
+<p align="center">
   <strong>Проверь папку. Найди лишнее. Публикуй осознанно.</strong><br>
   Локальная CLI-утилита для поиска случайно оставленных секретов и подготовки проекта к GitHub.
 </p>
